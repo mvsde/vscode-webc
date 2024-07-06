@@ -1,0 +1,10 @@
+.github
+.gitignore
+.npmrc
+.nvmrc
+/.vscode
+/node_modules
+/src
+esbuild.mjs
+eslint.config.mjs
+tsconfig.json

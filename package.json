@@ -1,0 +1,72 @@
+{
+	"name": "vscode-webc",
+	"displayName": "WebC for VS Code",
+	"description": "Language support for the WebC template language",
+	"publisher": "fynn",
+	"version": "0.0.0",
+	"preview": true,
+	"license": "MIT",
+	"categories": [
+		"Programming Languages"
+	],
+	"keywords": [
+		"eleventy",
+		"webc"
+	],
+	"homepage": "https://github.com/mvsde/vscode-webc/",
+	"bugs": {
+		"url": "https://github.com/mvsde/vscode-webc/issues",
+		"email": "post@fynn.be"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/mvsde/vscode-webc.git"
+	},
+	"qna": "https://github.com/mvsde/vscode-webc/discussions",
+	"icon": "images/icon.png",
+	"galleryBanner": {
+		"color": "#0f181b",
+		"theme": "dark"
+	},
+	"engines": {
+		"vscode": "^1.91.0",
+		"node": ">=20.9.0"
+	},
+	"activationEvents": [
+		"workspaceContains:**/*.webc"
+	],
+	"main": "./dist/extension.js",
+	"contributes": {
+		"configurationDefaults": {
+			"files.associations": {
+				"*.webc": "html"
+			}
+		},
+		"html": {
+			"customData": [
+				"data/at.html-data.json",
+				"data/webc.html-data.json"
+			]
+		}
+	},
+	"scripts": {
+		"watch": "node esbuild.mjs --watch",
+		"compile": "node --run typecheck && node --run lint && node esbuild.mjs --production",
+		"typecheck": "tsc --noEmit",
+		"lint": "eslint",
+		"version": "conventional-changelog --preset angular --infile CHANGELOG.md --same-file && git add CHANGELOG.md",
+		"vscode:prepublish": "node --run compile"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.6.0",
+		"@types/eslint__js": "^8.42.3",
+		"@types/node": "^20.14.10",
+		"@types/vscode": "^1.91.0",
+		"conventional-changelog-cli": "^5.0.0",
+		"esbuild": "^0.23.0",
+		"eslint": "^9.6.0",
+		"eslint-plugin-simple-import-sort": "^12.1.1",
+		"typescript": "^5.5.3",
+		"typescript-eslint": "^8.0.0-alpha.39"
+	}
+}

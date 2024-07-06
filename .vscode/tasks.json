@@ -1,0 +1,43 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "watch",
+			"problemMatcher": {
+				"owner": "typescript",
+				"source": "esbuild",
+				"applyTo": "closedDocuments",
+				"severity": "error",
+				"fileLocation": "relative",
+				"pattern": [
+					{
+						"regexp": "^[✘▲] \\[([A-Z]+)\\] (.+)",
+						"severity": 1,
+						"message": 2
+					},
+					{
+						"regexp": "^(?:\\t| {4})(?!\\s)([^:]+)(?::([0-9]+))?(?::([0-9]+))?:$",
+						"file": 1,
+						"line": 2,
+						"column": 3
+					}
+				],
+				"background": {
+					"activeOnStart": true,
+					"beginsPattern": "\\[watch\\] build started",
+					"endsPattern": "\\[watch\\] build finished"
+				}
+			},
+			"isBackground": true,
+			"label": "npm: watch",
+			"presentation": {
+				"reveal": "never"
+			},
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+	]
+}
