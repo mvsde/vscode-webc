@@ -90,3 +90,9 @@ globalAttributes:
     references:
       - name: WebC Documentation
         url: https://www.11ty.dev/docs/languages/webc/#webcignore
+
+  - name: webc:bucket
+    description: " "
+    references:
+      - name: WebC Documentation
+        url: https://www.11ty.dev/docs/languages/webc/#asset-bucketing
