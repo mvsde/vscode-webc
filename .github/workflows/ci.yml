@@ -3,8 +3,8 @@ on:
   - push
 
 jobs:
-  typecheck:
-    name: Typecheck
+  check:
+    name: Check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -12,10 +12,10 @@ jobs:
         with:
           node-version: 22
       - run: npm ci
-      - run: node --run typecheck
+      - run: node --run check
 
-  lint:
-    name: Lint
+  build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -23,4 +23,4 @@ jobs:
         with:
           node-version: 22
       - run: npm ci
-      - run: node --run lint
+      - run: node --run build

@@ -1,0 +1,26 @@
+version: 1.1
+
+globalAttributes:
+  - name: "@attributes"
+    description: " "
+    references:
+      - name: WebC Documentation
+        url: https://www.11ty.dev/docs/languages/webc/#@attributes
+
+  - name: "@html"
+    description: " "
+    references:
+      - name: WebC Documentation
+        url: https://www.11ty.dev/docs/languages/webc/#@html
+
+  - name: "@raw"
+    description: " "
+    references:
+      - name: WebC Documentation
+        url: https://www.11ty.dev/docs/languages/webc/#@raw
+
+  - name: "@text"
+    description: " "
+    references:
+      - name: WebC Documentation
+        url: https://www.11ty.dev/docs/languages/webc/#@raw

@@ -22,5 +22,5 @@ export default ts.config(
 			"simple-import-sort/exports": "error",
 		},
 	},
-	...ts.configs.recommended
+	...ts.configs.recommended,
 );

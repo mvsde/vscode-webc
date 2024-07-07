@@ -1,3 +1,7 @@
 {
-	"typescript.tsc.autoDetect": "off"
+	"typescript.tsc.autoDetect": "off",
+
+	"yaml.schemas": {
+		"https://github.com/microsoft/vscode-html-languageservice/raw/main/docs/customData.schema.json": "/src/data/*.yaml"
+	}
 }

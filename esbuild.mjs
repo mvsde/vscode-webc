@@ -1,3 +1,5 @@
+/** @import { Plugin } from "esbuild" */
+
 import process from "node:process";
 
 import esbuild from "esbuild";
@@ -6,7 +8,7 @@ const production = process.argv.includes("--production");
 const watch = process.argv.includes("--watch");
 
 /**
- * @type {import('esbuild').Plugin}
+ * @type {Plugin}
  */
 const esbuildProblemMatcherPlugin = {
 	name: "esbuild-problem-matcher",
@@ -19,7 +21,7 @@ const esbuildProblemMatcherPlugin = {
 			result.errors.forEach(({ text, location }) => {
 				console.error(`✘ [ERROR] ${text}`);
 				console.error(
-					`    ${location?.file}:${location?.line}:${location?.column}:`
+					`    ${location?.file}:${location?.line}:${location?.column}:`,
 				);
 			});
 			console.log("[watch] build finished");
@@ -39,10 +41,7 @@ async function main() {
 		outfile: "dist/extension.js",
 		external: ["vscode"],
 		logLevel: "silent",
-		plugins: [
-			/* add to the end of plugins array */
-			esbuildProblemMatcherPlugin,
-		],
+		plugins: [esbuildProblemMatcherPlugin],
 	});
 	if (watch) {
 		await ctx.watch();
