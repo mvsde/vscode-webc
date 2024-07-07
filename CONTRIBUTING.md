@@ -8,6 +8,12 @@ Install dependencies with:
 npm install
 ```
 
+Start the compiler watch task:
+
+```sh
+node --run watch
+```
+
 - Inside VS Code press <kbd>F5</kbd> to open a new window with the extension loaded.
 - Set breakpoints in your code to debug the extension.
 - Find output from the extension in the debug console.

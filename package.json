@@ -50,7 +50,7 @@
 		}
 	},
 	"scripts": {
-		"watch": "npm-run-all build:data --parallel watch:*",
+		"watch": "run-p watch:*",
 		"watch:data": "node --watch-path=./src/data --watch-preserve-output data.mjs",
 		"watch:extension": "node esbuild.mjs --watch",
 		"build": "run-s build:*",
