@@ -1,3 +1,3 @@
-export const eleventyConfigPattern = "**/{.eleventy.,eleventy.config.}{js,cjs}";
-export const excludePattern = "**/node_modules/**";
-export const webcFilePattern = "**/*.webc";
+export const patternEleventyConfig = "**/{.eleventy.,eleventy.config.}{js,cjs}";
+export const patternExclude = "**/node_modules/**";
+export const patternWebC = "**/*.webc";

@@ -1,32 +1,16 @@
 import vscode from "vscode";
 
-import { webcFilePattern } from "./constants.js";
-import { documentLinks } from "./lib/document-links.js";
-import {
-	loadEleventyProjects,
-	reloadEleventyProjects,
-} from "./lib/eleventy.js";
-import { createFileSystemWatcher } from "./utils/file-system-watcher.js";
+import { patternWebC } from "./constants.js";
+import { createFileSystemWatcher } from "./lib/file-system-watcher.js";
+import { loadProjects, reloadProjects } from "./lib/projects.js";
+import { WebCDefinitionProvider, WebCDocumentSelector } from "./services/webc-definition-provider.js";
 
 export async function activate(context: vscode.ExtensionContext) {
-	await loadEleventyProjects();
-
-	// Events
-	const eventWorkspaceFolders =
-		vscode.workspace.onDidChangeWorkspaceFolders(loadEleventyProjects);
-
-	// Watcher
-	const watcherWebC = createFileSystemWatcher(
-		webcFilePattern,
-		reloadEleventyProjects,
-	);
-
-	// Providers
-	const providerDocumentLinks = documentLinks();
+	await loadProjects();
 
 	context.subscriptions.push(
-		eventWorkspaceFolders,
-		watcherWebC,
-		providerDocumentLinks,
+		vscode.workspace.onDidChangeWorkspaceFolders(loadProjects),
+		createFileSystemWatcher(patternWebC, reloadProjects),
+		vscode.languages.registerDefinitionProvider(WebCDocumentSelector, WebCDefinitionProvider),
 	);
 }
