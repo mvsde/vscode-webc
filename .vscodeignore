@@ -2,9 +2,11 @@
 .gitignore
 .npmrc
 .nvmrc
-/.vscode
-/node_modules
-/src
+.prettierignore
+.prettierrc.yaml
+.vscode
 esbuild.mjs
 eslint.config.mjs
+node_modules/**
+src/**
 tsconfig.json
