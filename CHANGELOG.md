@@ -1,3 +1,12 @@
+# [0.3.0](https://github.com/mvsde/vscode-webc/compare/v0.2.0...v0.3.0) (2024-07-09)
+
+
+### Features
+
+* Go to Definition for WebC component names ([2040866](https://github.com/mvsde/vscode-webc/commit/204086693c7de91c9d87da7d57a49523d50edfb4))
+
+
+
 # [0.2.0](https://github.com/mvsde/vscode-webc/compare/v0.1.0...v0.2.0) (2024-07-07)
 
 
