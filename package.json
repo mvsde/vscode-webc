@@ -76,7 +76,7 @@
 		"npm-run-all2": "^6.2.2",
 		"prettier": "^3.3.2",
 		"typescript": "^5.5.3",
-		"typescript-eslint": "^8.0.0-alpha.39",
+		"typescript-eslint": "^8.0.0-alpha.41",
 		"yaml": "^2.4.5"
 	}
 }
