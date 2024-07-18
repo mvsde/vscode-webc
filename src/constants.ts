@@ -8,3 +8,6 @@ export const documentSelectorWebC: vscode.DocumentFilter = {
 	language: "html",
 	pattern: patternWebC,
 };
+
+export const frontMatterDelimiter = "---";
+export const keywordAttributes = ["webc:if", "webc:elseif", "webc:else", "webc:for"];
