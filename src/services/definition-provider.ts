@@ -1,22 +1,22 @@
 import vscode from "vscode";
 
+import { documentSelectorWebC } from "../constants.js";
 import { getProject } from "../lib/projects.js";
 
-export const definitionProvider: vscode.DefinitionProvider = {
+const provider: vscode.DefinitionProvider = {
 	provideDefinition(document, position) {
 		const project = getProject(document.uri);
 
-		if (!project) {
-			return;
-		}
+		if (!project) return;
 
 		const range = document.getWordRangeAtPosition(position);
+
+		if (!range) return;
+
 		const name = document.getText(range);
 		const component = project.getComponent(name);
 
-		if (!component) {
-			return;
-		}
+		if (!component) return;
 
 		const definitionPosition = new vscode.Position(0, 0);
 		const definitionLocation = new vscode.Location(component, definitionPosition);
@@ -24,3 +24,5 @@ export const definitionProvider: vscode.DefinitionProvider = {
 		return definitionLocation;
 	},
 };
+
+export const definitionProvider = vscode.languages.registerDefinitionProvider(documentSelectorWebC, provider);
