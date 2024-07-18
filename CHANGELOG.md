@@ -1,3 +1,18 @@
+# [0.4.0](https://github.com/mvsde/vscode-webc/compare/v0.3.0...v0.4.0) (2024-07-18)
+
+
+### Bug Fixes
+
+* Don’t require Eleventy project ([6f8cf40](https://github.com/mvsde/vscode-webc/commit/6f8cf409cb900967948e743ca3b61df8c6e80c1a))
+* Mark boolean attributes for completion ([6e09f4e](https://github.com/mvsde/vscode-webc/commit/6e09f4e62519ad270f3c6d8602c0101e4bb7bb3d))
+
+
+### Features
+
+* Add basic semantic highlighting for tags and attributes ([d6294ef](https://github.com/mvsde/vscode-webc/commit/d6294ef7db9aaecff921a24b7f6134ab0e4e58e1))
+
+
+
 # [0.3.0](https://github.com/mvsde/vscode-webc/compare/v0.2.0...v0.3.0) (2024-07-09)
 
 
