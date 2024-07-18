@@ -1,14 +1,8 @@
 import vscode from "vscode";
 
-import { patternWebC } from "../constants.js";
 import { getProject } from "../lib/projects.js";
 
-export const WebCDocumentSelector: vscode.DocumentFilter = {
-	language: "html",
-	pattern: patternWebC,
-};
-
-export const WebCDefinitionProvider: vscode.DefinitionProvider = {
+export const definitionProvider: vscode.DefinitionProvider = {
 	provideDefinition(document, position) {
 		const project = getProject(document.uri);
 

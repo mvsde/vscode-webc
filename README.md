@@ -1,6 +1,6 @@
 # WebC for VS Code
 
-Please refer to the [WebC documentation](https://www.11ty.dev/docs/languages/webc/) for how to use WebC in your Eleventy project.
+Please refer to the [WebC documentation](https://www.11ty.dev/docs/languages/webc/) for how to use WebC in general or in your [Eleventy](https://www.11ty.dev/) project in particular.
 
 ## Features
 

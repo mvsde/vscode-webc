@@ -2,7 +2,7 @@ import path from "node:path";
 
 import vscode from "vscode";
 
-import { patternEleventyConfig, patternExclude, patternWebC } from "../constants.js";
+import { patternExclude, patternPackage, patternWebC } from "../constants.js";
 
 let projects: Project[] = [];
 
@@ -10,8 +10,8 @@ class Project {
 	#uri: vscode.Uri;
 	#components: Map<string, vscode.Uri> | null = null;
 
-	constructor(config: vscode.Uri) {
-		this.#uri = vscode.Uri.joinPath(config, "..");
+	constructor(root: vscode.Uri) {
+		this.#uri = vscode.Uri.joinPath(root, "..");
 	}
 
 	async init() {
@@ -36,12 +36,17 @@ class Project {
 }
 
 export async function loadProjects() {
-	const configs = await vscode.workspace.findFiles(patternEleventyConfig, patternExclude);
+	const pkgs = await vscode.workspace.findFiles(patternPackage, patternExclude);
+
+	// Fall back to workspace folders as project roots if no package.json files could be found
+	if (!pkgs.length && vscode.workspace.workspaceFolders) {
+		pkgs.push(...vscode.workspace.workspaceFolders.map((folder) => folder.uri));
+	}
 
 	projects = [];
 
-	for (const config of configs) {
-		const project = new Project(config);
+	for (const pkg of pkgs) {
+		const project = new Project(pkg);
 		await project.init();
 		projects.push(project);
 	}
