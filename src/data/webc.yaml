@@ -6,12 +6,14 @@ globalAttributes:
     references:
       - name: WebC Documentation
         url: https://www.11ty.dev/docs/languages/webc/#webckeep
+    valueSet: v
 
   - name: webc:nokeep
     description: " "
     references:
       - name: WebC Documentation
         url: https://www.11ty.dev/docs/languages/webc/#webcnokeep
+    valueSet: v
 
   - name: webc:import
     description: " "
@@ -68,6 +70,7 @@ globalAttributes:
     references:
       - name: WebC Documentation
         url: https://www.11ty.dev/docs/languages/webc/#webcsetup
+    valueSet: v
 
   - name: webc:type
     description: " "
@@ -84,12 +87,14 @@ globalAttributes:
     references:
       - name: WebC Documentation
         url: https://www.11ty.dev/docs/languages/webc/#webcraw
+    valueSet: v
 
   - name: webc:ignore
     description: " "
     references:
       - name: WebC Documentation
         url: https://www.11ty.dev/docs/languages/webc/#webcignore
+    valueSet: v
 
   - name: webc:bucket
     description: " "
