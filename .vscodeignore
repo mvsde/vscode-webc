@@ -5,6 +5,7 @@
 .prettierignore
 .prettierrc.yaml
 .vscode
+data.mjs
 esbuild.mjs
 eslint.config.mjs
 node_modules/**
