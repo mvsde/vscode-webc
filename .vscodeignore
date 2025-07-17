@@ -1,13 +1,13 @@
 .github
 .gitignore
+.node-version
 .npmrc
-.nvmrc
 .prettierignore
-.prettierrc.yaml
 .vscode
 data.js
 esbuild.js
 eslint.config.js
 node_modules/**
+prettier.config.js
 src/**
 tsconfig.json
