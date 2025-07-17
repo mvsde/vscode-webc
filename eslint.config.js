@@ -1,26 +1,28 @@
-import js from "@eslint/js";
+import eslint from "@eslint/js";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
 import globals from "globals";
-import ts from "typescript-eslint";
+import tseslint from "typescript-eslint";
 
-export default ts.config(
+export default tseslint.config(
 	{
 		ignores: ["dist"],
 	},
 	{
-		plugins: {
-			"simple-import-sort": simpleImportSort,
-		},
 		languageOptions: {
 			globals: {
 				...globals.node,
 			},
 		},
+	},
+	{
+		plugins: {
+			"simple-import-sort": simpleImportSort,
+		},
 		rules: {
-			...js.configs.recommended.rules,
 			"simple-import-sort/imports": "error",
 			"simple-import-sort/exports": "error",
 		},
 	},
-	...ts.configs.recommended,
+	eslint.configs.recommended,
+	tseslint.configs.strict,
 );

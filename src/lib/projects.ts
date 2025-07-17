@@ -1,22 +1,22 @@
 import path from "node:path";
 
-import vscode from "vscode";
+import { RelativePattern, Uri, workspace } from "vscode";
 
 import { patternExclude, patternPackage, patternWebC } from "../constants.js";
 
 let projects: Project[] = [];
 
 class Project {
-	#uri: vscode.Uri;
-	#components: Map<string, vscode.Uri> | null = null;
+	#uri: Uri;
+	#components: Map<string, Uri> | null = null;
 
-	constructor(root: vscode.Uri) {
-		this.#uri = vscode.Uri.joinPath(root, "..");
+	constructor(root: Uri) {
+		this.#uri = Uri.joinPath(root, "..");
 	}
 
 	async init() {
-		const filePattern = new vscode.RelativePattern(this.#uri, patternWebC);
-		const files = await vscode.workspace.findFiles(filePattern, patternExclude);
+		const filePattern = new RelativePattern(this.#uri, patternWebC);
+		const files = await workspace.findFiles(filePattern, patternExclude);
 
 		this.#components = new Map();
 
@@ -26,7 +26,7 @@ class Project {
 		}
 	}
 
-	has(file: vscode.Uri) {
+	has(file: Uri) {
 		return file.path.startsWith(this.#uri.path);
 	}
 
@@ -36,11 +36,11 @@ class Project {
 }
 
 export async function loadProjects() {
-	const pkgs = await vscode.workspace.findFiles(patternPackage, patternExclude);
+	const pkgs = await workspace.findFiles(patternPackage, patternExclude);
 
 	// Fall back to workspace folders as project roots if no package.json files could be found
-	if (!pkgs.length && vscode.workspace.workspaceFolders) {
-		pkgs.push(...vscode.workspace.workspaceFolders.map((folder) => folder.uri));
+	if (!pkgs.length && workspace.workspaceFolders) {
+		pkgs.push(...workspace.workspaceFolders.map((folder) => folder.uri));
 	}
 
 	projects = [];
@@ -58,6 +58,6 @@ export async function reloadProjects() {
 	}
 }
 
-export function getProject(file: vscode.Uri) {
+export function getProject(file: Uri) {
 	return projects.find((project) => project.has(file));
 }

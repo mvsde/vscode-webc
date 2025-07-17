@@ -1,9 +1,9 @@
-import vscode from "vscode";
+import { type DefinitionProvider, languages, Location, Position } from "vscode";
 
 import { documentSelectorWebC } from "../constants.js";
 import { getProject } from "../lib/projects.js";
 
-const provider: vscode.DefinitionProvider = {
+const provider: DefinitionProvider = {
 	provideDefinition(document, position) {
 		const project = getProject(document.uri);
 
@@ -18,11 +18,11 @@ const provider: vscode.DefinitionProvider = {
 
 		if (!component) return;
 
-		const definitionPosition = new vscode.Position(0, 0);
-		const definitionLocation = new vscode.Location(component, definitionPosition);
+		const definitionPosition = new Position(0, 0);
+		const definitionLocation = new Location(component, definitionPosition);
 
 		return definitionLocation;
 	},
 };
 
-export const definitionProvider = vscode.languages.registerDefinitionProvider(documentSelectorWebC, provider);
+export const definitionProvider = languages.registerDefinitionProvider(documentSelectorWebC, provider);

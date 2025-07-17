@@ -29,9 +29,10 @@
 		"theme": "dark"
 	},
 	"engines": {
-		"vscode": "^1.91.0",
-		"node": ">=22.4.0"
+		"vscode": "^1.102.0",
+		"node": ">=22.15"
 	},
+	"type": "module",
 	"activationEvents": [
 		"workspaceContains:**/*.webc"
 	],
@@ -51,32 +52,32 @@
 	},
 	"scripts": {
 		"watch": "run-p watch:*",
-		"watch:data": "node --watch-path=./src/data --watch-preserve-output data.mjs",
-		"watch:extension": "node esbuild.mjs --watch",
+		"watch:data": "node --watch-path=./src/data --watch-preserve-output data.js",
+		"watch:extension": "node esbuild.js --watch",
 		"build": "run-s build:*",
-		"build:data": "node data.mjs",
-		"build:extension": "node esbuild.mjs --production",
+		"build:data": "node data.js",
+		"build:extension": "node esbuild.js --production",
 		"check": "run-s check:*",
 		"check:lint": "eslint",
 		"check:types": "tsc --noEmit",
-		"check:format": "prettier --check .",
-		"format": "prettier --write .",
+		"check:format": "prettier --experimental-cli --check .",
+		"format": "prettier --experimental-cli --write .",
 		"version": "conventional-changelog --preset angular --infile CHANGELOG.md --same-file && git add CHANGELOG.md",
 		"vscode:prepublish": "run-s check build"
 	},
 	"devDependencies": {
-		"@eslint/js": "^9.7.0",
-		"@types/eslint__js": "^8.42.3",
-		"@types/node": "^20.14.11",
-		"@types/vscode": "^1.91.0",
+		"@eslint/js": "^9.31.0",
+		"@types/node": "^24.0.14",
+		"@types/vscode": "^1.102.0",
 		"conventional-changelog-cli": "^5.0.0",
-		"esbuild": "^0.23.0",
-		"eslint": "^9.7.0",
+		"esbuild": "^0.25.6",
+		"eslint": "^9.31.0",
 		"eslint-plugin-simple-import-sort": "^12.1.1",
-		"npm-run-all2": "^6.2.2",
-		"prettier": "^3.3.3",
-		"typescript": "^5.5.3",
-		"typescript-eslint": "^8.0.0-alpha.45",
-		"yaml": "^2.4.5"
+		"globals": "^16.3.0",
+		"npm-run-all2": "^8.0.4",
+		"prettier": "^3.6.2",
+		"typescript": "^5.8.3",
+		"typescript-eslint": "^8.37.0",
+		"yaml": "^2.8.0"
 	}
 }

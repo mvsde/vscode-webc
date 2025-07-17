@@ -1,7 +1,7 @@
-import vscode from "vscode";
+import { type GlobPattern, type Uri, workspace } from "vscode";
 
-export function createFileSystemWatcher(glob: vscode.GlobPattern, callback: (event: vscode.Uri) => void) {
-	const watcher = vscode.workspace.createFileSystemWatcher(glob);
+export function createFileSystemWatcher(glob: GlobPattern, callback: (event: Uri) => void) {
+	const watcher = workspace.createFileSystemWatcher(glob);
 
 	watcher.onDidCreate(callback);
 	watcher.onDidChange(callback);

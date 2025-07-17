@@ -1,10 +1,10 @@
-import vscode from "vscode";
+import { type DocumentFilter } from "vscode";
 
 export const patternExclude = "**/node_modules/**";
 export const patternPackage = "**/package.json";
 export const patternWebC = "**/*.webc";
 
-export const documentSelectorWebC: vscode.DocumentFilter = {
+export const documentSelectorWebC: DocumentFilter = {
 	language: "html",
 	pattern: patternWebC,
 };

@@ -5,9 +5,9 @@
 .prettierignore
 .prettierrc.yaml
 .vscode
-data.mjs
-esbuild.mjs
-eslint.config.mjs
+data.js
+esbuild.js
+eslint.config.js
 node_modules/**
 src/**
 tsconfig.json

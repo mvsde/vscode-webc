@@ -1,15 +1,24 @@
 {
 	"compilerOptions": {
-		"module": "Node16",
-		"target": "ES2023",
-		"lib": ["ES2023"],
-		"sourceMap": true,
+		// Input
 		"rootDir": "src",
-		"strict": true,
+		"esModuleInterop": true,
+		"moduleResolution": "nodenext",
+		"allowImportingTsExtensions": true,
 
-		/* Additional Checks */
-		"noImplicitReturns": true,
+		// Output
+		"noEmit": true,
+		"module": "nodenext",
+		"target": "esnext",
+		"lib": ["ESNext"],
+		"sourceMap": true,
+
+		// Type Checking
+		"strict": true,
 		"noFallthroughCasesInSwitch": true,
+		"noImplicitOverride": true,
+		"noImplicitReturns": true,
+		"noUnusedLocals": true,
 		"noUnusedParameters": true
 	}
 }

@@ -9,10 +9,11 @@ try {
 	const context = await esbuild.context({
 		entryPoints: ["./src/extension.ts"],
 		bundle: true,
-		format: "cjs",
+		format: "esm",
+		platform: "node",
+		target: "node22.15",
 		minify: isProduction,
 		sourcemap: true,
-		platform: "node",
 		outfile: "./dist/extension.js",
 		external: ["vscode"],
 		logLevel: "info",

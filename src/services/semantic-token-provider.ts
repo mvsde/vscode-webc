@@ -1,23 +1,29 @@
-import vscode from "vscode";
+import {
+	type DocumentSemanticTokensProvider,
+	languages,
+	Range,
+	SemanticTokensBuilder,
+	SemanticTokensLegend,
+} from "vscode";
 
 import { documentSelectorWebC, frontMatterDelimiter, keywordAttributes } from "../constants.js";
 import { getProject } from "../lib/projects.js";
 
 interface TokenPosition {
-	range: vscode.Range;
+	range: Range;
 	tokenType: string;
 }
 
 const tokenTypes = ["class", "keyword"];
-const legend = new vscode.SemanticTokensLegend(tokenTypes);
+const legend = new SemanticTokensLegend(tokenTypes);
 
-const provider: vscode.DocumentSemanticTokensProvider = {
+const provider: DocumentSemanticTokensProvider = {
 	provideDocumentSemanticTokens(document, token) {
 		const project = getProject(document.uri);
 
 		if (!project) return;
 
-		const builder = new vscode.SemanticTokensBuilder(legend);
+		const builder = new SemanticTokensBuilder(legend);
 		const text = document.getText();
 		const positions: TokenPosition[] = [];
 
@@ -59,7 +65,7 @@ const provider: vscode.DocumentSemanticTokensProvider = {
 
 				const start = document.positionAt(index);
 				const end = start.translate(0, attribute.length);
-				const range = new vscode.Range(start, end);
+				const range = new Range(start, end);
 
 				positions.push({ range, tokenType: "keyword" });
 
@@ -75,7 +81,7 @@ const provider: vscode.DocumentSemanticTokensProvider = {
 	},
 };
 
-export const semanticTokenProvider = vscode.languages.registerDocumentSemanticTokensProvider(
+export const semanticTokenProvider = languages.registerDocumentSemanticTokensProvider(
 	documentSelectorWebC,
 	provider,
 	legend,
