@@ -3,7 +3,7 @@
 	"displayName": "WebC for VS Code",
 	"description": "Language support for the WebC template language",
 	"publisher": "fynn",
-	"version": "0.4.0",
+	"version": "0.5.0",
 	"preview": true,
 	"license": "MIT",
 	"categories": [
